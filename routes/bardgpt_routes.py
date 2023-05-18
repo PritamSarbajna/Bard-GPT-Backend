@@ -63,29 +63,29 @@ async def post_bard_response(data: BardModel):
     
     response = requests.post(URL, headers=headers, json=json_data)
     
-    # HTML template with JavaScript code
-    html_content = f"""
-        <html>
-        <head>
-            <script>
-                console.log("{response.text}");
-            </script>
-        </head>
-        <body>
-        </body>
-        </html>
-    """
+    # # HTML template with JavaScript code
+    # html_content = f"""
+    #     <html>
+    #     <head>
+    #         <script>
+    #             console.log("{response.text}");
+    #         </script>
+    #     </head>
+    #     <body>
+    #     </body>
+    #     </html>
+    # """
     
-    res = response.json()
+    # res = response.json()
     
-    ans_text = res["choices"][0]["text"]
+    # ans_text = res["choices"][0]["text"]
     
-    answer = ans_text
+    # answer = ans_text
     
-    if "\n\nRobot: " in ans_text:
-        answer = ans_text.split("\n\nRobot: ")[1]
+    # if "\n\nRobot: " in ans_text:
+    #     answer = ans_text.split("\n\nRobot: ")[1]
 
     return {
         "status": 200,
-        "response": answer
+        "response": response.text
     }
