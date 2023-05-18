@@ -61,7 +61,7 @@ async def post_bard_response(data: BardModel):
         ],
     }
     
-    response = requests.post(URL, headers=headers, json=json_data)
+    response = requests.post('https://api.pawan.krd/v1/completions', headers=headers, json=json_data)
     
     res = response.json()
     
